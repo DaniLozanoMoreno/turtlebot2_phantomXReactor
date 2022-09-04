@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+  phantomx_reactor.urdf.xacro
+	
+  Author: Daniel Lozano Moreno
+  File created for the final degree project in robotics engineering at
+  the University of Alicante (UA), promotion of 2021-2022. Proyect Name:
+  Control y simulacion en ROS de un PhatomX Reactor Arm en cooperacion
+  con un TurtleBot2 (Control and simulation in ROS of a PhatomX Reactor 
+  Arm in cooperation with a TurtleBot2).
+	
+  URDF of TurtleBot robot with the arm manipulator PhantomX Reactor wrist.
+  Include the following hardware:
+	
+  - Arm       : PhantomX Reactor
+  - Arm transmissions: JointPositionInterface actuator hardware interface
+  
+  Also include the gazebo plugins for its control.
+  
+  Important: change the filename field of gazebo mimic_joint plugin xacro
+  for the rout where your plugin is installed.
+-->
+<robot name="phantomx_reactor_arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Arm parts -->
+  <xacro:include filename="$(find turtlebot_arm_description)/urdf/phantomx_reactor_plant_model.urdf.xacro" />
+  <xacro:include filename="$(find turtlebot_arm_description)/urdf/phantomx_reactor_actuators_model.xacro" /> 
+	
+  <!-- Arm base link -->
+  <link name="base_footprint">
+	<visual>
+	  <origin xyz="0 0 0" rpy="0 0 0"/>
+	  <geometry>
+		<box size="0.001 0.001 0.001" />
+	  </geometry>
+    </visual>
+  </link>
+
+  <!-- Set parents -->
+  <xacro:phantomx_reactor_wrist prefix="" parent="base_footprint">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:phantomx_reactor_wrist>
+  <transmissions prefix=""/>
+	
+  <!-- gazebo_ros_control plugin --> 
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+	  <legacyModeNS>true</legacyModeNS>
+      <controlPeriod>0.001</controlPeriod>
+    </plugin>
+  </gazebo>
+
+  <!-- gazebo mimic_joint plugin xacro-->
+  <xacro:macro name="mimic_joint_plugin_gazebo" params="name_prefix parent_joint mimic_joint has_pid:=false multiplier:=1.0 offset:=0 sensitiveness:=0.0 max_effort:=1.0 robot_namespace:=''">
+    <gazebo>
+      <plugin name="${name_prefix}mimic_joint_plugin" filename="/home/ros/NoBorrar/roboticsgroup_gazebo_plugins/build/devel/lib/libroboticsgroup_gazebo_mimic_joint_plugin.so">
+        <joint>${parent_joint}</joint>
+        <mimicJoint>${mimic_joint}</mimicJoint>
+        <xacro:if value="${has_pid}">                     
+          <hasPID />
+        </xacro:if>
+        <multiplier>${multiplier}</multiplier>
+        <offset>${offset}</offset>
+        <sensitiveness>${sensitiveness}</sensitiveness>   
+        <maxEffort>${max_effort}</maxEffort>              
+        <xacro:unless value="${robot_namespace == ''}">
+          <robotNamespace>${robot_namespace}</robotNamespace>
+        </xacro:unless>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+  
+  <!-- Set gripper_left mimic of gripper_right -->
+  <xacro:mimic_joint_plugin_gazebo name_prefix="gripper_left_joint"
+    parent_joint="gripper_right_joint" mimic_joint="gripper_left_joint"
+    has_pid="true" multiplier="-1.0" max_effort="10.0" />
+   
+</robot>

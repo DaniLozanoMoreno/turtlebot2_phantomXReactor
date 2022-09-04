@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  turtlebot_arm_gazebo.launch
+	
+  Author: Daniel Lozano Moreno
+  File created for the final degree project in robotics engineering at
+  the University of Alicante (UA), promotion of 2021-2022. Proyect Name:
+  Control y simulacion en ROS de un PhatomX Reactor Arm en cooperacion
+  con un TurtleBot2 (Control and simulation in ROS of a PhatomX Reactor 
+  Arm in cooperation with a TurtleBot2).
+	
+  Gazebo simulation of two turtlebot_arm in an empty world with 
+  controllers.
+ 
+  Command for execution:
+	 roslaunch turtlebot_arm_gazebo turtlebot_arm_multirobot_gazebo.launch
+-->
+<launch>
+	
+  <!-- Load map: empty world -->
+  <arg name="gui" default="true"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="gui" value="$(arg gui)" />
+  </include>
+  
+  <!--  Robots variables  -->
+  <arg name="namespace_robot_1" value="/turtlebot_arm_1"/>
+  <arg name="namespace_robot_2" value="/turtlebot_arm_2"/>
+  <arg name="pose_robot_1" value="-x 0 -y 0.5 -z 0.01"/>
+  <arg name="pose_robot_2" value="-x 0 -y -0.5 -z 0.01"/>
+  
+  <!-- Robots description -->
+  <include file="$(find turtlebot_arm_description)/launch/turtlebot_arm_load_description.launch">
+	  <arg name="namespace" value="$(arg namespace_robot_1)"/>
+  </include>
+
+  <!-- Robot 1 -->
+  <group ns="$(arg namespace_robot_1)">
+	  <!-- Gazebo spawner -->
+	  <node name="spawn_turtlebot_arm_model" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="$(arg pose_robot_1) 
+                -urdf 
+                -param /robot_description 
+                -model $(arg namespace_robot_1)"/>
+      <!-- Load controllers -->
+      <rosparam file="$(find turtlebot_arm_gazebo)/config/turtlebot_arm_controllers.yaml" command="load" ns="$(arg namespace_robot_1)"/>
+      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" 
+	    output="screen"
+	    args="--namespace=$(arg namespace_robot_1)
+				joint_state_controller 
+				arm_controller 
+				grip_controller"/>
+  </group>
+  
+</launch>

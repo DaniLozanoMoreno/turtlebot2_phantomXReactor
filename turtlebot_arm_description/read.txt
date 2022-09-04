@@ -1,0 +1,6 @@
+Package content:
+
+# urdf: robots definitions
+# robots: robots plant models
+# meshes: robots meshes
+# launch: robots descriptions ans rviz launchers

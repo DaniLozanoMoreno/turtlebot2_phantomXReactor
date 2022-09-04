@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ demo_moveit_rviz.launch
+	
+  Author: Daniel Lozano Moreno
+  File created for the final degree project in robotics engineering at
+  the University of Alicante (UA), promotion of 2021-2022. Proyect Name:
+  Control y simulacion en ROS de un PhatomX Reactor Arm en cooperacion
+  con un TurtleBot2 (Control and simulation in ROS of a PhatomX Reactor 
+  Arm in cooperation with a TurtleBot2).
+	
+ Main launcher to plan and execute arm trajectories.
+ 
+ Command for execution:
+	 roslaunch turtlebot_arm_gazebo turtlebot_arm_moveit_demo.launch
+-->
+<launch>
+
+  <!-- Joints names to plan and execute trajectories -->
+  <rosparam command="load" file="$(find turtlebot_arm_gazebo)/config/joint_names.yaml"/>
+
+  <!-- Include URDF and SRDF -->
+  <include file="$(find turtlebot_arm_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+    <arg name="robot_description" value="auxiliar"/>
+  </include>
+
+  <!-- Publisher joint states in topic /joint_states -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <rosparam param="/source_list">[/joint_states]</rosparam>
+  </node>
+  
+  <!-- Nuevo -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+  
+  <!-- Execution of trajectories -->
+  <include file="$(find turtlebot_arm_moveit_config)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true"/>
+    <arg name="fake_execution" value="false"/>
+  </include> 
+
+  <!-- Moveit in rviz -->
+<!--
+  <include file="$(find turtlebot_arm_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="config" value="true"/>
+  </include>
+-->
+  
+</launch>

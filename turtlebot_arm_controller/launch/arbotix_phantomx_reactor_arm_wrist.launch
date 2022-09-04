@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find phantomx_reactor_arm_description)/robots/phantomx_reactor_arm_wrist.urdf.xacro'" />
+  
+  <node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen">
+    <rosparam file="$(find package_name)/path/to/file/config.yaml" command="load" />
+  </node>
+  
+</launch>

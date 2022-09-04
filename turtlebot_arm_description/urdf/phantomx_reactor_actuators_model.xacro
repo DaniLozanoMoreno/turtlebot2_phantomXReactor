@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<!--
+  phantomx_reactor_transmissions.urdf.xacro
+	
+  Author: Daniel Lozano Moreno
+  File created for the final degree project in robotics engineering at
+  the University of Alicante (UA), promotion of 2021-2022. Proyect Name:
+  Control y simulacion en ROS de un PhatomX Reactor Arm en cooperacion
+  con un TurtleBot2 (Control and simulation in ROS of a PhatomX Reactor 
+  Arm in cooperation with a TurtleBot2).
+	
+  Include the PhantomX Reacto actuators model for each joint. The trans-
+  missions provide a link between the actuators and the joints. The 
+  hardware interface is PositionJointInterface type because simulate a
+  servomotor, so only it accepts position commands as input.  
+    
+-->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="transmissions" params="prefix">
+
+  <!-- shoulder_yaw_joint -->
+    <transmission name="trans_${prefix}shoulder_yaw_joint">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="${prefix}shoulder_yaw_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_${prefix}shoulder_yaw_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	
+	<!-- shoulder_pitch_joint -->
+	<transmission name="trans_${prefix}shoulder_pitch_joint">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="${prefix}shoulder_pitch_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_${prefix}shoulder_pitch_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	
+	<!-- elbow_pitch_joint -->
+	<transmission name="trans_${prefix}elbow_pitch_joint">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="${prefix}elbow_pitch_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_${prefix}elbow_pitch_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	
+	<!-- wrist_pitch_joint -->
+	<transmission name="trans_${prefix}wrist_pitch_joint">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="${prefix}wrist_pitch_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_${prefix}wrist_pitch_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	
+	<!-- wrist_roll_joint -->
+	<transmission name="trans_${prefix}wrist_roll_joint">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="${prefix}wrist_roll_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_${prefix}wrist_roll_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+	
+	<!-- gripper_right_joint -->
+	<transmission name="trans_${prefix}gripper_right_joint">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="${prefix}gripper_right_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_${prefix}gripper_right_joint">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>	
+	
+  </xacro:macro>
+  
+</robot>

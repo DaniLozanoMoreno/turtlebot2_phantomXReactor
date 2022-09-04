@@ -1,0 +1,13 @@
+#
+# joints_names.yaml
+#
+# Author: Daniel Lozano Moreno
+# File created for the final degree project in robotics engineering at
+# the University of Alicante (UA), promotion of 2021-2022. Proyect Name:
+# Control y simulacion en ROS de un PhatomX Reactor Arm en cooperacion
+# con un TurtleBot2 (Control and simulation in ROS of a PhatomX Reactor 
+# Arm in cooperation with a TurtleBot2).
+#
+# Names of the joints to control
+
+controller_joint_names: [shoulder_yaw_joint, shoulder_pitch_joint, elbow_pitch_joint, wrist_pitch_joint, wrist_roll_joint, gripper_right_joint]

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- 
+ turtlebot_arm_load_description.launch
+	
+  Author: Daniel Lozano Moreno
+  File created for the final degree project in robotics engineering at
+  the University of Alicante (UA), promotion of 2021-2022. Proyect Name:
+  Control y simulacion en ROS de un PhatomX Reactor Arm en cooperacion
+  con un TurtleBot2 (Control and simulation in ROS of a PhatomX Reactor 
+  Arm in cooperation with a TurtleBot2).
+ 	 
+  Load the Turtlebot with the Phantomx Reactor wrist arm URDF and
+  robot state publisher.
+  
+  Command for execution:
+	roslaunch turtlebot_arm_description turtlebot_arm_load_description.launch
+-->
+<launch>
+  <arg name="namespace" default=""/>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find turtlebot_arm_description)/robots/turtlebot_arm.urdf.xacro'">
+     <arg name="namespace" value="$(arg namespace)"/>
+  </param>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+</launch>
+

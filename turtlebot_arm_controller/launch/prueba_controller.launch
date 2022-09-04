@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+  roslaunch turtlebot_arm_controller prueba_controller.launch
+-->
+
+<launch>
+	
+  <!-- Robot description -->
+  <include file="$(find turtlebot_arm_description)/launch/turtlebot_arm_load_description.launch"/>
+
+</launch>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+  turtlebot_arm_rviz_demo.launch
+	
+  Author: Daniel Lozano Moreno
+  File created for the final degree project in robotics engineering at
+  the University of Alicante (UA), promotion of 2021-2022. Proyect Name:
+  Control y simulacion en ROS de un PhatomX Reactor Arm en cooperacion
+  con un TurtleBot2 (Control and simulation in ROS of a PhatomX Reactor 
+  Arm in cooperation with a TurtleBot2).
+ 	 
+  Launch Turtlebot arm description and show it in rviz with a control 
+  joints gui.
+  
+  Command for execution:
+	roslaunch turtlebot_arm_description turtlebot_arm_rviz_demo.launch
+-->
+<launch>
+
+    <!-- Load turtlebot arm description -->
+    <include file="$(find turtlebot_arm_description)/launch/turtlebot_arm_load_description.launch"/>
+
+    <!-- Show in Rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" />
+
+    <!-- send fake joint values -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="True"/>
+    </node>
+
+</launch>

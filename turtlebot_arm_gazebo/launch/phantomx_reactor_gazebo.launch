@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  phantomx_reactor_gazebo.launch
+	
+  Author: Daniel Lozano Moreno
+  File created for the final degree project in robotics engineering at
+  the University of Alicante (UA), promotion of 2021-2022. Proyect Name:
+  Control y simulacion en ROS de un PhatomX Reactor Arm en cooperacion
+  con un TurtleBot2 (Control and simulation in ROS of a PhatomX Reactor 
+  Arm in cooperation with a TurtleBot2).
+	
+  Gazebo simulation of the PhantomX Reactor Arm in an empty world with 
+  controllers.
+ 
+  Command for execution:
+	 roslaunch turtlebot_arm_gazebo phantomx_reactor_gazebo.launch
+-->
+<launch>
+	
+  <!-- Load map: empty world -->
+  <arg name="gui" default="true"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="gui" value="$(arg gui)" />
+  </include>
+  
+  <!-- Robot description -->
+  <include file="$(find turtlebot_arm_description)/launch/phantomx_reactor_load_description.launch"/>
+
+  <!-- Gazebo model spawner -->
+  <node name="spawn_turtlebot_model" pkg="gazebo_ros" type="spawn_model"
+		args="$(optenv ROBOT_INITIAL_POSE) -unpause -urdf -param robot_description -model turtlebot_arm -u"/>
+
+  <!-- Load controllers -->
+   <rosparam file="$(find turtlebot_arm_gazebo)/config/phantomx_reactor_controllers.yaml" command="load"/>
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen"
+	args="joint_state_controller arm_controller grip_controller"/>
+	
+  <!-- <node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" /> -->
+
+</launch>
