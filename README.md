@@ -11,7 +11,7 @@ These packages allow control of a PhantomX Reactor Arm in cooperation with a Tur
 * turtlebot_arm_moveit_config: moveit configuration
 * turtlebot_arm_controllers: control arquitecture
 
-To use the real robot is necessary the repository of arbotix_ros: https://github.com/vanadiumlabs/arbotix_ros
+To use the real robot is necessary the arbotix_ros repository: https://github.com/vanadiumlabs/arbotix_ros
 
 The documentations offered are in Spanish for now. Read it carefully to know hot to use the repository:
 
