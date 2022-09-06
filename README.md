@@ -72,13 +72,13 @@ turtlebot_arm_multirobot_gazebo is for load several turtlebot_arm simultaneously
 
 The real PhantomXReactor works with a ArbotiX microcontroller, wich command directly to the arm servos. The ArbotiX is programmed with Arduino and for communication with ros, it need to be programmed with a driver. The robots in the robotic laboratory of UA are programmed with it. Otherwise, you should follow the steps described in the section "Setting up the Arbotix-M board" in https://github.com/RobotnikAutomation/phantomx_reactor_arm .
 
-In ros, is needed the arbotix_ros driver to the comunication: https://github.com/vanadiumlabs/arbotix_ros . It allow to configurate the control mode of the arm servos. To know how to use this driver to comunicatewith the real robot, read the "Manual de laboratorio del PhantomX Reactor Arm" document. If you want to make a trajectory control with * trajectory_msgs/JointTrajectory * msgs type, you need to follow this steps:
+In ros, is needed the arbotix_ros driver to the comunication: https://github.com/vanadiumlabs/arbotix_ros . It allow to configurate the control mode of the arm servos. To know how to use this driver to comunicate with the real robot, read the *Guia de uso del paquete arbotix_ros* document. If you want to make a trajectory control with **trajectory_msgs/JointTrajectory** msgs type, you need to follow this steps:
 
 1. Load phantomx_reactor_arm description.
 2. Create a config.yaml like turtlebot2_phantomXReactor/turtlebot_arm_controller/config/config.yaml.
 3. Load arbotix_driver like turtlebot2_phantomXReactor/turtlebot_arm_controller/launch/arbotix_phantomx_reactor_arm_wrist.launch.
 
-Also, a simple control architecture has been created: phantomx_reactor.py. It offers trajectory plannificators and executers that can be programmed in a main. "Manual de laboratorio del PhantomX Reactor Arm" document offers a lot of ewemples to know hot to use it.
+Also, a simple control architecture has been created: phantomx_reactor.py. It offers trajectory plannificators and executers that can be programmed in a main. *Manual de laboratorio del PhantomX Reactor Arm* document offers a lot of ewemples to know hot to use it.
 
 
 
