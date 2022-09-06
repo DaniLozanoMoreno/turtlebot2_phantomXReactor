@@ -19,6 +19,19 @@ The documentations offered are in Spanish for now. Read it carefully to know how
 * Guia de uso del paquete arbotix_ros: explain how to configure the arbotix ros board (whish the robot works).
 * Control y simulación en ROS de un PhantomX Reactor Arm en cooperacion con un TurtleBot2: explain how the repository has been developed.
 
-# Turtlebot Arm description
----
-hola
+# turtlebot_arm_description
+
+Has been created two robots models:
+* phantomx_reactor: arm plant and transmissions.
+* turtlebot_arm: arm plant and transmissions and turtleBot2 model. 
+
+PhantomX Reactor has his own repository in https://github.com/RobotnikAutomation/phantomx_reactor_arm , but it has some errors that don't allow to work with the turtlebot model. turlebot2_phantomXReactor respository works regardless of this repository.
+
+This models can be loaded executing:
+'''
+roslaunch turtlebot_arm_description phantomx_reactor_load_description.launch
+'''
+
+
+
+
