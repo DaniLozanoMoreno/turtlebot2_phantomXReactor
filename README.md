@@ -2,6 +2,8 @@
 
 Author: Daniel Lozano Moreno
 
+* *Gazebo Kinetic.* *
+
 Proyect created for the final degree project in robotics engineering at the University of Alicante (UA), promotion of 2021-2022. Proyect Name: Control y simulación en ROS de un PhatomX Reactor Arm en cooperación con un TurtleBot2 (Control and simulation in ROS of a PhatomX Reactor Arm in cooperation with a TurtleBot2).
 
 These packages allow control of a PhantomX Reactor Arm in cooperation with a TurtleBot in gazebo simulation and in real. A MoveIt configuration and a simple Software architecture with trajectory planners for the arm control are offered.
@@ -42,5 +44,16 @@ roslaunch turtlebot_arm_description phantomx_reactor_rviz_demo.launch
 roslaunch turtlebot_arm_description turtlebot_arm_rviz_demo.launch
 ```
 
+# turtlebot_arm_gazebo
 
+Robots models can be simulated in Gazebo. 
+
+To load models in Gazebo execute:
+
+```
+roslaunch turtlebot_arm_gazebo phantomx_reactor_gazebo.launch
+```
+```
+roslaunch turtlebot_arm_gazebo turtlebot_arm_gazebo.launch
+```
 
