@@ -48,7 +48,7 @@ roslaunch turtlebot_arm_description turtlebot_arm_rviz_demo.launch
 
 Robots models can be simulated in Gazebo. 
 
-To load models in Gazebo execute:
+To load the robots models in Gazebo execute:
 
 ```
 roslaunch turtlebot_arm_gazebo phantomx_reactor_gazebo.launch
@@ -56,4 +56,16 @@ roslaunch turtlebot_arm_gazebo phantomx_reactor_gazebo.launch
 ```
 roslaunch turtlebot_arm_gazebo turtlebot_arm_gazebo.launch
 ```
+
+A teleoperating turtlebot_arm demo is offered executing:
+
+```
+*To load robot model, world and arm teleop controller (needed rqt_joint_trajectory_controller repository)*
+roslaunch turtlebot_arm_gazebo turtlebot_arm_teleop_demo_gazebo.launch
+```
+```
+*To load turtlebot mobile base teleop controller*
+roslaunch turtlebot_teleop keyboard_teleop.launch
+```
+
 
