@@ -27,11 +27,13 @@ Has been created two robots models:
 
 PhantomX Reactor has his own repository in https://github.com/RobotnikAutomation/phantomx_reactor_arm , but it has some errors that don't allow to work with the turtlebot model. turlebot2_phantomXReactor respository works regardless of this repository.
 
-This models can be loaded executing:
+Descriptions can be loaded executing:
 ```
 roslaunch turtlebot_arm_description phantomx_reactor_load_description.launch
 ```
-
+```
+roslaunch turtlebot_arm_description turtlebot_arm_load_description.launch
+```
 
 
 
