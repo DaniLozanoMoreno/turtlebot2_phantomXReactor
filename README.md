@@ -34,6 +34,13 @@ roslaunch turtlebot_arm_description phantomx_reactor_load_description.launch
 ```
 roslaunch turtlebot_arm_description turtlebot_arm_load_description.launch
 ```
+To load them in rviz:
+```
+roslaunch turtlebot_arm_description phantomx_reactor_rviz_demo.launch
+```
+```
+roslaunch turtlebot_arm_description turtlebot_arm_rviz_demo.launch
+```
 
 
 
