@@ -67,5 +67,7 @@ roslaunch turtlebot_arm_gazebo turtlebot_arm_teleop_demo_gazebo.launch
 *To load turtlebot mobile base teleop controller*
 roslaunch turtlebot_teleop keyboard_teleop.launch
 ```
+turtlebot_arm_multirobot_gazebo is for load few turltebot2_phantomXReactor. For now doesn't work.
+
 
 
