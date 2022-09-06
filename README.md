@@ -2,7 +2,7 @@
 
 Author: Daniel Lozano Moreno
 
-* *Gazebo Kinetic.* *
+*Gazebo Kinetic.*
 
 Proyect created for the final degree project in robotics engineering at the University of Alicante (UA), promotion of 2021-2022. Proyect Name: Control y simulación en ROS de un PhatomX Reactor Arm en cooperación con un TurtleBot2 (Control and simulation in ROS of a PhatomX Reactor Arm in cooperation with a TurtleBot2).
 
