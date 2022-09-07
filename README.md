@@ -6,7 +6,7 @@ Author: Daniel Lozano Moreno
 
 Proyect created for the final degree project in robotics engineering at the University of Alicante (UA), promotion of 2021-2022. Proyect Name: Control y simulación en ROS de un PhatomX Reactor Arm en cooperación con un TurtleBot2 (Control and simulation in ROS of a PhatomX Reactor Arm in cooperation with a TurtleBot2).
 
-These packages allow control of a PhantomX Reactor Arm in cooperation with a TurtleBot in gazebo simulation and in real. A MoveIt configuration and a simple Software architecture with trajectory planners for the arm control are offered.
+These packages allow the control of a PhantomX Reactor Arm in cooperation with a TurtleBot in gazebo simulation and in real. A MoveIt configuration and a simple Software architecture with trajectory planners for the arm control are offered.
 
 * **turtlebot_arm_desciption**: robot model
 * **turtlebot_arm_gazebo**: gazebo simulations
