@@ -78,7 +78,7 @@ In ros, is needed the arbotix_ros driver to the comunication: https://github.com
 2. Create a config.yaml like turtlebot2_phantomXReactor/turtlebot_arm_controller/config/config.yaml.
 3. Load arbotix_driver like turtlebot2_phantomXReactor/turtlebot_arm_controller/launch/arbotix_phantomx_reactor_arm_wrist.launch.
 
-Also, a simple control architecture has been created: phantomx_reactor.py. It offers trajectory plannificators and executers that can be programmed in a main. *Manual de laboratorio del PhantomX Reactor Arm* document offers a lot of ewemples to know hot to use it.
+Also, a simple control architecture has been created: phantomx_reactor.py. It offers trajectory plannificators and executers that can be programmed in a main. *Manual de laboratorio del PhantomX Reactor Arm* document offers a lot of exemples to know hot to use it.
 
 
 
