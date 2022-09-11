@@ -18,7 +18,7 @@ To use the real robot is necessary the arbotix_ros repository: https://github.co
 The documentations offered are in Spanish for now. Read it carefully to know how to use the repository:
 
 * Manual de laboratorio del PhantomX Reactor Arm: explain how to use the real robot and gazebo simulation with this repository.
-* Guia de uso del paquete arbotix_ros: explain how to configure the arbotix ros board (whish the robot works).
+* Guia de uso del paquete arbotix_ros: explain how to configure the arbotix ros board (the one which the robot works).
 * Control y simulación en ROS de un PhantomX Reactor Arm en cooperacion con un TurtleBot2: explain how the repository has been developed.
 
 # turtlebot_arm_description
