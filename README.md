@@ -25,9 +25,9 @@ The documentations offered are in Spanish for now. Read it carefully to know how
 
 Has been created two robots models:
 * **phantomx_reactor**: arm plant and transmissions.
-* **turtlebot_arm**: arm plant and transmissions and turtleBot2 model. 
+* **turtlebot_arm**: arm plant, transmissions and turtleBot2 model. 
 
-PhantomX Reactor has his own repository in https://github.com/RobotnikAutomation/phantomx_reactor_arm , but it has some errors that don't allow to work with the turtlebot model. turlebot2_phantomXReactor respository works regardless of this repository.
+PhantomX Reactor has his own repository in https://github.com/RobotnikAutomation/phantomx_reactor_arm , but it has some errors that doesn't allow to work with the turtlebot model. turlebot2_phantomXReactor respository works regardless of this repository.
 
 Descriptions can be loaded executing:
 ```
